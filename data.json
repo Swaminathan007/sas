@@ -1,0 +1,329 @@
+[
+  {
+    "Apt,MALWARE,SIGNATURES": "APT,HIDDEN COBRA,\"alert tcp any any -> any any (msg:\"\"ET MALWARE DPRK HIDDEN COBRA DDoS Handshake Success\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert tcp any any -> any any (msg:\"\"ET MALWARE DPRK HIDDEN COBRA Botnet C2 Host Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",Wiper,\"alert tcp any any -> any any (msg:\"\"ET MALWARE US-CERT TA14-353A Wiper 2\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",MUDDYWATER,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload Sending Command Output to CnC\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload Registering with CnC\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload CnC Checkin\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT31,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",Rekoobe,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE ELF/Rekoobe CnC Observed in DNS Query\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",Rekoobe,\"alert tls $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE Observed Malicious SSL Cert (ELF/Rekoobe CnC)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",EvilOSX,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE OSX/EvilOSX Client Receiving Commands\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT3,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",SOGU,\"alert tcp $HOME_NET any -> $EXTERNAL_NET [1024:] (msg:\"\"ET ATTACK_RESPONSE LaZagne Artifact Outbound in FTP\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert udp $HOME_NET any -> $EXTERNAL_NET !53 (msg:\"\"ET MALWARE PlugX UDP CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert udp $HOME_NET any -> $EXTERNAL_NET !53 (msg:\"\"ET MALWARE PlugX UDP CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE Possible PlugX DNS Lookup (operaa.net)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert udp $HOME_NET any -> any ![80,443] (msg:\"\"ET MALWARE Win32/PlugX Variant CnC Activity\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX or EvilGrab DNS Lookup (appeur.gnway.cc)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert tcp-pkt $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Win32/PlugX Related Activity\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert udp $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Suspected PlugX Checkin Activity (udp)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX DNS Lookup\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE Win32/PlugX Related Domain in DNS Lookup\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (ntpserver .xyz)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (cxks8 .com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (wpsup .daj8 .me)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (wps .daj8 .me)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (cdn .imango .ink)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX Related Domain in DNS Lookup (api .imango .ink)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Possible PlugX Common Header Struct\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE Possible PlugX DNS Lookup (googlemanage.com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX or EvilGrab DNS Lookup (websecexp.com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE PlugX/Destory HTTP traffic\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE PlugX CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE PlugX DNS Lookup (mailsecurityservice.com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Win32/PlugX/Talisman Activity (POST)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE PlugX Activity (POST)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Suspected PlugX Checkin Activity (GET)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE PlugX/Korplug CnC Activity\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE PlugX variant\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",PlugX,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Win32/Plugx CnC Activity (CONNECT)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT33,ALFA,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Alfa/Alpha Ransomware Checkin\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ALFA,\"alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET WEB_CLIENT ALFA TEaM Webshell Accessed on External Compromised Server\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ALFA,\"alert http $HTTP_SERVERS any -> $EXTERNAL_NET any (msg:\"\"ET WEB_SERVER ALFA TEaM Webshell Accessed on Internal Compromised Server\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ALFA,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE ALFA Shell APT33 DNS Lookup (solevisible .com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ALFA,\"alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET WEB_CLIENT ALFA TEaM Shell Landing Page\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ALFA,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Alfa/Alpha Ransomware Checkin\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT28,Chopstick,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Win32/Chopstick Checkin (APT28 Related)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT27,Pandora,\"alert http $EXTERNAL_NET any -> $HTTP_SERVERS any (msg:\"\"ET WEB_SPECIFIC_APPS Pandora FMS SQLi\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",Zxshell,\"alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/ZxShell Server Checkin Response\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE W32/ZxShell Checkin\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",ghost,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Observed Buran Ransomware UA (GHOST)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Observed Buran Ransomware UA (GHOST)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",htran,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Observed Buran Ransomware UA (GHOST)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE HTran/SensLiceld.A Checkin 2 (unicode)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Shady Rat/HTran style HTTP Header Pattern Request UHCa and Google MSIE UA\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT25,Mirage,\"#alert http1 $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE Shady Rat/HTran style HTTP Header Pattern Request UHCa and Google MSIE UA\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT41,Sandworm,\"alert tcp $EXTERNAL_NET [445,139] -> $HOME_NET any (msg:\"\"ET MALWARE Possible SandWorm INF Download (SMB)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert tcp $EXTERNAL_NET [445,139] -> $HOME_NET any (msg:\"\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET CURRENT_EVENTS BlackEnergy URI Struct Oct 17 2014 BE5\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET CURRENT_EVENTS BlackEnergy URI Struct Oct 17 2014 BE4\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET CURRENT_EVENTS BlackEnergy URI Struct Oct 17 2014 BE3\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET CURRENT_EVENTS BlackEnergy URI Struct Oct 17 2014 BE2\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET CURRENT_EVENTS BlackEnergy URI Struct Oct 17 2014 BE1\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE FROZENBARENTS (SANDWORM) APT Related Domain in DNS Lookup (ukroboronprom .com .ukr .pm)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE FROZENBARENTS (SANDWORM) APT Related Domain in DNS Lookup (cpcpipe .com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",Microcin,\"alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE Microcin Backdoor Related Domain in DNS Lookup (m .necemarket .com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert dns $HOME_NET any -> any any (msg:\"\"ET MALWARE Microcin Backdoor Related Domain in DNS Lookup (holdmem .dbhubspi .com)\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT26,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT40,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT22,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT21,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT20,SOGU,\"#alert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"\"ET MALWARE W32/Sogu Remote Access Trojan Social Media Embedded CnC Channel\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,"
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "APT32,BEACON,\"alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"\"ET MALWARE Night Dragon CnC Beacon Outbound\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"\"ET DELETED Linux/SSHDoor.A User Login CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET DELETED W32/Asprox Spam Module CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET WORM W32/Njw0rm CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET DELETED W32/Ferret DDOS Bot CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET DELETED W32/Azbreg.Backdoor CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET DELETED W32/Azbreg.Backdoor CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $HOME_NET any -> $EXTERNAL_NET 1024: (msg:\"\"ET MALWARE W32/FakeFlash.Dropper Initial CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $EXTERNAL_NET 1024: -> $HOME_NET any (msg:\"\"ET MALWARE W32/FakeFlash.Dropper Initial CnC Beacon Acknowledgement\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $HOME_NET any -> $EXTERNAL_NET 1024: (msg:\"\"ET MALWARE W32/FakeFlash.Dropper PutInformation CnC Beacon\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert tcp $EXTERNAL_NET 1024: -> $HOME_NET any (msg:\"\"ET MALWARE W32/FakeFlash.Dropper GetInformation CnC Beacon Acknowledgement\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": ",,\"#alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET DELETED W32/Alina.POS-Trojan CnC Beacon\""
+  }
+]

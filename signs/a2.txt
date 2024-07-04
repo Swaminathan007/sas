@@ -1,0 +1,6 @@
+{
+    "Apt,MALWARE,SIGNATURES": "APT,HIDDEN COBRA,\"alert tcp any any -> any any (msg:\"\"ET MALWARE DPRK HIDDEN COBRA DDoS Handshake Success\""
+  },
+  {
+    "Apt,MALWARE,SIGNATURES": "alert tcp any any -> any any (msg:\"\"ET MALWARE DPRK HIDDEN COBRA Botnet C2 Host Beacon\""
+  },

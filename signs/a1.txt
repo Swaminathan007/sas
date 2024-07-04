@@ -1,0 +1,9 @@
+{     
+    "Apt,MALWARE,SIGNATURES": ",MUDDYWATER,\"alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload Sending Command Output to CnC\""   
+},
+{
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload Registering with CnC\""
+},
+{
+    "Apt,MALWARE,SIGNATURES": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"\"ET MALWARE MuddyWater Payload CnC Checkin\""   
+}

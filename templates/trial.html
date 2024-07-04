@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.I.S.H.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #3d3d87;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: whitesmoke;
+            flex-wrap: wrap;
+            height: 150px;
+            width:100%;
+            padding:10px;
+        }
+        .header .title {
+            font-size: 1.5em;
+            flex-grow: 1;
+            color: #3d3d87;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .header .logo img {
+            width: auto;
+            height: 100px;
+        }
+        .taskbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #d4cfcf;
+            padding: 10px 0;
+            flex-wrap: wrap;
+            color: #3d3d87;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .taskbar div {
+            cursor: pointer;
+            padding: 10px;
+        }
+        .taskbar .selected {
+            border-bottom: 2px solid #d76e28;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content .emoji {
+            font-size: 24px;
+        }
+        @media (max-width: 768px) {
+            .header .title {
+                font-size: 20px;
+                text-align: center;
+                flex-basis: 100%;
+            }
+            .taskbar div {
+                flex-basis: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+        #chart {
+            width: 100%;
+            height: auto;
+        }
+        #backButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            display: none;
+        }
+        .bubble-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+
+        .bubble {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            font-size: 1.5em;
+            position: absolute;
+            animation: float 4s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+        }
+
+        .bubble:hover .sub-bubble {
+            display: flex;
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+
+        .sub-bubble {
+            position: absolute;
+            display: none;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            font-size: 0.75em;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        .A { background-color: hsl(25, 78%, 44%); width: 200px; height: 200px; top: 40%; left: 40%; transform: translate(0%, 0%);}
+        .B { background-color: hsl(179, 80%, 58%); width: 100px; height: 100px; top: 20%; left: 38%; color: #1f2e6e; }
+        .C { background-color: #ffff07; width: 100px; height: 100px; top: 20%; left: 50%; color: #1f2e6e; }
+        .D { background-color: #ffff07; width: 100px; height: 100px; top: 15%; left: 59%; color: #1f2e6e; }
+        .E { background-color: #1f2e6e; width: 100px; height: 100px; top: 15%; left: 28%; color: white;}
+        .F { background-color: hsl(180, 2%, 46%); width: 100px; height: 100px; top: 35%; left: 30%; color: #1f2e6e; }
+        .G { background-color: hsl(295, 100%, 22%); width: 100px; height: 100px; top: 35%; left: 55%; color: white; }
+        .H { background-color: greenyellow; width: 100px; height: 100px; top: 40%; left: 63%; color: #1f2e6e; }
+        .I { background-color: #1f2e6e; width: 100px; height: 100px; top: 40%; left: 18%; color: white; }
+        .J { background-color: #e94e77; width: 100px; height: 100px; top: 55%; left: 30%; color: white; }
+        .K { background-color: #e94e77; width: 100px; height: 100px; top: 55%; left: 55%; color: white; }
+        .L { background-color: greenyellow; width: 100px; height: 100px; top: 70%; left: 60%; color: #1f2e6e; }
+        .M { background-color: hsl(295, 100%, 22%); width: 100px; height: 100px; top: 15%; left: 18%; color: white; }
+        .N { background-color: #ff5f52; width: 100px; height: 100px; top: 70%; left: 38%; color: white; }
+        .O { background-color: hsl(25, 78%, 44%); width: 100px; height: 100px; top: 70%; left: 50%; transform: translate(0%, 0%);}
+        .P { background-color: hsl(179, 80%, 58%); width: 100px; height: 100px; top: 60%; left: 68%; color: #1f2e6e; }
+        .Q { background-color: #ffff07; width: 100px; height: 100px; top: 85%; left: 68%; color: #1f2e6e; }
+        .R { background-color: #ffff07; width: 100px; height: 100px; top: 80%; left: 30%; color: #1f2e6e; }
+        .S { background-color: #1f2e6e; width: 100px; height: 100px; top: 5%; left: 44%; color: white;}
+        .T { background-color: hsl(180, 2%, 46%); width: 100px; height: 100px; top: 22%; left: 68%; color: #1f2e6e; }
+        .U { background-color: hsl(295, 100%, 22%); width: 100px; height: 100px; top: 85%; left: 20%; color: white; }
+        .V { background-color: greenyellow; width: 100px; height: 100px; top: 65%; left: 20%; color: #1f2e6e; }
+        .W { background-color: hsl(295, 100%, 22%); width: 100px; height: 100px; top: 85%; left: 44%; color: white; }
+        .X { background-color: greenyellow; width: 100px; height: 100px; top: 85%; left: 55%; color: #1f2e6e; }
+
+        .sub-A1 {width: 80px; height: 80px; top: -20%; left: 30%; color: #1f2e6e;font-size: .8em;}
+        .sub-A2 { width: 80px; height: 80px;top: -55%; left: 60%; color: #1f2e6e;font-size: .8em;}
+        .sub-A3 { width: 80px; height: 80px;top: 80%; left: 70%; color: #1f2e6e;font-size: .8em;}
+        .sub-A4 { width: 80px; height: 80px;top: 80%; left: -10%; color: #1f2e6e;font-size: .8em;}
+        .sub-E1 { width: 80px; height: 80px;top: -10%; left: 40%; color: #1f2e6e;font-size: .8em;}
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        .task{
+            width:25%;
+            font-size:25px;
+            color: #1f2e6e;
+        }
+        .task-link{
+            color: #1f2e6e;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="title"><h1><b>A.I.S.H. - SASTRA'S Threat Intel Platform</b></h1></div>
+    <div class="logo"><img src="{{url_for('static',filename='images/im.png')}}" alt="Logo"></div>
+</div>
+    
+<div class="container-fluid mt-2">
+    <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
+        <li class="nav-item task" role="presentation">
+            <a class="nav-link active task-link" id="home-tab" data-bs-toggle="tab" href="#apt" role="tab" aria-controls="home" aria-selected="true">APT</a>
+        </li>
+        <li class="nav-item task" role="presentation">
+            <a class="nav-link task-link" id="profile-tab" data-bs-toggle="tab" href="#insider" role="tab" aria-controls="profile" aria-selected="false">Insider</a>
+        </li>
+        <li class="nav-item task" role="presentation">
+            <a class="nav-link task-link" id="contact-tab" data-bs-toggle="tab" href="#scada" role="tab" aria-controls="contact" aria-selected="false">SCADA</a>
+        </li>
+        <li class="nav-item task" role="presentation">
+            <a class="nav-link task-link" id="contact-tab" data-bs-toggle="tab" href="#hw" role="tab" aria-controls="contact" aria-selected="false">Hardware</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="apt" role="tabpanel" aria-labelledby="home-tab">
+            <div id="apt-content" style="display: flex;">
+                <div class="bubble-container">
+                    <div id="backButton" class="btn btn-primary">Back</div>
+                    <div class="bubble A" onclick="showBubble('A')">APT
+                        <div class="sub-bubble sub-A1" data-file="a1.txt">MUDDY WATER</div>
+                        <div class="sub-bubble sub-A3" data-file="a2.txt">HIDDEN COBRA</div>
+                        <div class="sub-bubble sub-A4" data-file="a3.txt">WIPER</div>
+                    </div>
+                    <div class="bubble B"onclick="showBubble('B')">APT1
+                        <div class="sub-bubble sub-A3">HIDDEN COBRA</div>
+                        <div class="sub-bubble sub-A4">WIPER</div>
+                    </div>
+                    <div class="bubble C" onclick="showBubble('C')">APT10</div>
+                    <div class="bubble D" onclick="showBubble('D')">APT44</div>
+                    <div class="bubble E" onclick="showBubble('E')">APT12
+                        <div class="sub-bubble sub-E1" data-file="e1.txt">THREEBYTE</div>
+                    </div>
+                    <div class="bubble F" onclick="showBubble('F')">APT15</div>
+                    <div class="bubble G" onclick="showBubble('G')">APT17</div>
+                    <div class="bubble H" onclick="showBubble('H')">APT27</div>
+                    <div class="bubble I" onclick="showBubble('I')">APT28</div>
+                    <div class="bubble J" onclick="showBubble('J')">APT29</div>
+                    <div class="bubble K" onclick="showBubble('K')">APT30</div>
+                    <div class="bubble L" onclick="showBubble('L')">APT31</div>
+                    <div class="bubble M" onclick="showBubble('M')">APT32</div>
+                    <div class="bubble N" onclick="showBubble('N')">APT33</div>
+                    <div class="bubble O" onclick="showBubble('O')">APT34</div>
+                    <div class="bubble P" onclick="showBubble('P')">APT35</div>
+                    <div class="bubble Q" onclick="showBubble('Q')">APT36</div>
+                    <div class="bubble R" onclick="showBubble('R')">APT37</div>
+                    <div class="bubble S" onclick="showBubble('S')">APT38</div>
+                    <div class="bubble T" onclick="showBubble('T')">APT39</div>
+                    <div class="bubble U" onclick="showBubble('U')">APT40</div>
+                    <div class="bubble V" onclick="showBubble('V')">APT41</div>
+                    <div class="bubble W" onclick="showBubble('W')">APT42</div>
+                    <div class="bubble X" onclick="showBubble('X')">APT43</div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="insider" role="tabpanel" aria-labelledby="profile-tab">
+            <h3>Insider Tab</h3>
+            <video width="80%" height="auto" controls>
+                <source src="{{ url_for('static', filename='images/ITD.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="tab-pane fade" id="scada" role="tabpanel" aria-labelledby="contact-tab">
+            <h3>SCADA Tab</h3>
+            <video style="align-items: center;" width="80%" height="auto" controls>
+                <source src="{{ url_for('static', filename='images/ITD.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="tab-pane fade" id="hw" role="tabpanel" aria-labelledby="contact-tab">
+            <h3>Hardware Tab</h3>
+            <p>This is the content for the harware tab.</p>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contentModalLabel">Content</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalContent"></div>
+        </div>
+        <div class="modal-footer">
+          <a id="download-txt" class="btn btn-primary" download="content.txt">Download TXT</a>
+          <a id="download-json" class="btn btn-primary" download="content.json">Download JSON</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const subBubbles = document.querySelectorAll('.sub-bubble');
+
+        subBubbles.forEach(subBubble => {
+            subBubble.addEventListener('click', function() {
+                const fileName = this.getAttribute('data-file');
+                fetchContent(fileName);
+            });
+        });
+    });
+
+    function fetchContent(fileName) {
+        fetch(`/content/${fileName}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('modalContent').innerText = data;
+                const blob = new Blob([data], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                document.getElementById('download-txt').href = url;
+
+                const jsonBlob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+                const jsonUrl = URL.createObjectURL(jsonBlob);
+                document.getElementById('download-json').href = jsonUrl;
+
+                new bootstrap.Modal(document.getElementById('contentModal')).show();
+            });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+            const bubbles = document.querySelectorAll(".bubble");
+            const backButton = document.getElementById("backButton");
+            const mainBubbles = [...bubbles].filter(bubble => !bubble.classList.contains("sub-bubble"));
+
+            bubbles.forEach(bubble => {
+                bubble.addEventListener("click", () => {
+                    const bubbleId = bubble.getAttribute("data-bubble");
+                    if (!bubble.classList.contains("sub-bubble")) {
+                        showSubBubbles(bubbleId);
+                    }
+                });
+            });
+
+            backButton.addEventListener("click", showMainBubbles);
+
+            
+
+            function showMainBubbles() {
+            bubbles.forEach(bubble => {
+        bubble.style.display = "flex";
+        bubble.style.transform = 'scale(1)'; // Reset scale to original size
+        bubble.style.animation = ''; // Clear any applied animations
+        if (bubble.classList.contains("sub-bubble")) {
+            bubble.style.display = "none";
+        }
+    });
+    
+
+
+                backButton.style.display = "none";
+            }
+        });
+        function showBubble(bubbleClass) {
+    const bubbles = document.querySelectorAll('.bubble');
+    const subBubbles = document.querySelectorAll(`.bubble.${bubbleClass} .sub-bubble`);
+
+    bubbles.forEach(bubble => {
+        if (bubble.classList.contains(bubbleClass)) {
+            bubble.style.transform = 'scale(1.5)';
+            bubble.style.animation = 'zoomIn 0.5s forwards';
+            subBubbles.forEach(subBubble => {
+                subBubble.style.display = 'flex';
+            });
+        } else {
+            bubble.style.display = 'none';
+        }
+    });
+
+    document.getElementById('backButton').style.display = 'block';
+}
+
+$(".tab").click(function() {
+                $(".tab").removeClass("selected");
+                $(this).addClass("selected");
+
+                var tabId = $(this).attr("id");
+                if (tabId === "tab-home") {
+                    $("#content-container > div").hide();
+                    $("#home-content").show();
+                } else if (tabId === "tab-insider") {
+                    $("#content-container > div").hide();
+                    $("#insider-content").show();
+                } else if (tabId === "tab-scada") {
+                    $("#content-container > div").hide();
+                    $("#scada-content").show();
+                }
+            });
+       
+
+</script>
+</body>
+</html>

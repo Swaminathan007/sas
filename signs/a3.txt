@@ -1,0 +1,3 @@
+{
+    "Apt,MALWARE,SIGNATURES": ",Wiper,\"alert tcp any any -> any any (msg:\"\"ET MALWARE US-CERT TA14-353A Wiper 2\""
+}
